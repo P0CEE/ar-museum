@@ -186,7 +186,6 @@ const styles = StyleSheet.create({
   crosshairActive: {
     borderColor: theme.colors.accent,
     backgroundColor: 'transparent',
-    transform: [{ scale: 1.5 }],
   },
 
   // Model Placeholder
