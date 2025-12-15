@@ -6,6 +6,7 @@ import ARScreen from '../screens/ARScreen';
 import DinosaurListScreen from '../screens/DinosaurListScreen';
 
 import PrivacyScreen from '../screens/PrivacyScreen';
+import ImageTracking from '../screens/ImageTracking';
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,11 @@ export default function AppNavigator() {
           headerTransparent: true,
           headerTintColor: '#fff',
         })} 
+      />
+      <Stack.Screen 
+        name="ImageTracking" 
+        component={ImageTracking} 
+        options={{ title: 'Image Tracking' }} 
       />
     </Stack.Navigator>
   );
