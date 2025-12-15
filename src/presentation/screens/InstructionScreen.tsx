@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
 import { theme } from '../theme';
 
 export default function InstructionScreen({ navigation }: any) {
@@ -8,17 +8,25 @@ export default function InstructionScreen({ navigation }: any) {
       <Text style={styles.title}>Comment ça marche ?</Text>
       
       <View style={styles.instructionContainer}>
-        <Text style={styles.instructionText}>1. Accordez la permission d'accès à la caméra.</Text>
-        <Text style={styles.instructionText}>2. Choisissez un dinosaure dans la liste.</Text>
-        <Text style={styles.instructionText}>3. Pointez votre caméra vers un marqueur ou un espace ouvert.</Text>
-        <Text style={styles.instructionText}>4. Découvrez les dinosaures en 3D !</Text>
+        <View style={styles.stepRow}>
+            <Text style={styles.stepNumber}>01</Text>
+            <Text style={styles.instructionText}>Sélectionnez un dinosaure dans la liste.</Text>
+        </View>
+        <View style={styles.stepRow}>
+            <Text style={styles.stepNumber}>02</Text>
+            <Text style={styles.instructionText}>Scannez le sol avec votre caméra jusqu'à ce que le réticule devienne jaune.</Text>
+        </View>
+        <View style={styles.stepRow}>
+            <Text style={styles.stepNumber}>03</Text>
+            <Text style={styles.instructionText}>Appuyez sur "PLACER" pour faire apparaître le modèle.</Text>
+        </View>
       </View>
 
       <TouchableOpacity 
         style={styles.button}
         onPress={() => navigation.navigate('DinosaurList')}
       >
-        <Text style={styles.buttonText}>Voir les Dinosaures</Text>
+        <Text style={styles.buttonText}>COMMENCER</Text>
       </TouchableOpacity>
     </View>
   );
@@ -34,36 +42,44 @@ const styles = StyleSheet.create({
   },
   title: {
     ...theme.text.title,
-    marginBottom: 30,
+    marginBottom: 40,
+    textAlign: 'center',
   },
   instructionContainer: {
     marginBottom: 40,
-    alignItems: 'flex-start',
     width: '100%',
-    paddingHorizontal: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
-    padding: theme.spacing.l,
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: theme.colors.secondary,
+    paddingHorizontal: 10,
+  },
+  stepRow: {
+    flexDirection: 'row',
+    marginBottom: theme.spacing.l,
+    alignItems: 'flex-start',
+  },
+  stepNumber: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: theme.colors.accent,
+    marginRight: theme.spacing.m,
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
   },
   instructionText: {
     ...theme.text.body,
-    marginBottom: 15,
+    flex: 1,
     lineHeight: 24,
+    fontSize: 16,
   },
   button: {
     backgroundColor: theme.colors.secondary,
-    paddingHorizontal: 40,
-    paddingVertical: 15,
-    borderRadius: 30,
-    elevation: 5,
+    paddingHorizontal: 50,
+    paddingVertical: 18,
     borderWidth: 2,
     borderColor: theme.colors.accent,
+    borderRadius: theme.layout.borderRadius,
   },
   buttonText: {
     color: theme.colors.white,
     fontSize: 18,
     fontWeight: 'bold',
+    letterSpacing: 2,
   },
 });

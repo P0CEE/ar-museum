@@ -5,6 +5,8 @@ import InstructionScreen from '../screens/InstructionScreen';
 import ARScreen from '../screens/ARScreen';
 import DinosaurListScreen from '../screens/DinosaurListScreen';
 
+import PrivacyScreen from '../screens/PrivacyScreen';
+
 const Stack = createStackNavigator();
 
 export default function AppNavigator() {
@@ -14,6 +16,11 @@ export default function AppNavigator() {
         name="Welcome" 
         component={WelcomeScreen} 
         options={{ headerShown: false }}
+      />
+      <Stack.Screen 
+        name="Privacy" 
+        component={PrivacyScreen} 
+        options={{ title: 'Confidentialité' }} 
       />
       <Stack.Screen 
         name="Instructions" 

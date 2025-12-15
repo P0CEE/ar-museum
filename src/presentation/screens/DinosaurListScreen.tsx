@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
     ...theme.text.title,
     textAlign: 'center',
     marginBottom: theme.spacing.l,
+    marginTop: theme.spacing.l,
   },
   listContainer: {
     paddingHorizontal: theme.spacing.m,
@@ -59,16 +60,11 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: theme.colors.white,
-    borderRadius: 15,
+    borderRadius: theme.layout.borderRadius,
     marginBottom: theme.spacing.m,
     padding: theme.spacing.m,
-    elevation: 3,
-    borderLeftWidth: 5,
+    borderLeftWidth: 6,
     borderLeftColor: theme.colors.primary,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
   },
   cardContent: {
     flexDirection: 'row',

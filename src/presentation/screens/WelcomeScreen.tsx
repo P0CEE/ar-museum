@@ -12,7 +12,14 @@ export default function WelcomeScreen({ navigation }: any) {
         style={styles.button}
         onPress={() => navigation.navigate('Instructions')}
       >
-        <Text style={styles.buttonText}>Entrer</Text>
+        <Text style={styles.buttonText}>ENTRER</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        style={styles.linkButton}
+        onPress={() => navigation.navigate('Privacy')}
+      >
+        <Text style={styles.linkText}>Confidentialité & Données</Text>
       </TouchableOpacity>
     </View>
   );
@@ -28,6 +35,7 @@ const styles = StyleSheet.create({
   title: {
     ...theme.text.title,
     marginBottom: theme.spacing.s,
+    textAlign: 'center',
   },
   subtitle: {
     ...theme.text.subtitle,
@@ -35,16 +43,27 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: theme.colors.primary,
-    paddingHorizontal: 40,
-    paddingVertical: 15,
-    borderRadius: 30,
-    elevation: 5,
+    paddingHorizontal: 50,
+    paddingVertical: 18,
+    borderRadius: theme.layout.borderRadius,
+    elevation: 0,
     borderWidth: 2,
-    borderColor: theme.colors.secondary,
+    borderColor: theme.colors.text,
   },
   buttonText: {
     color: theme.colors.white,
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
+    letterSpacing: 2,
   },
+  linkButton: {
+    marginTop: 30,
+    padding: 10,
+  },
+  linkText: {
+    color: theme.colors.text,
+    fontSize: 14,
+    textDecorationLine: 'underline',
+    opacity: 0.7,
+  }
 });
