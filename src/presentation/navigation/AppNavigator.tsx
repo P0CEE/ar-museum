@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import InstructionScreen from '../screens/InstructionScreen';
 import ARScreen from '../screens/ARScreen';
+import DinosaurListScreen from '../screens/DinosaurListScreen';
 
 const Stack = createStackNavigator();
 
@@ -20,13 +21,18 @@ export default function AppNavigator() {
         options={{ title: 'Instructions' }} 
       />
       <Stack.Screen 
+        name="DinosaurList" 
+        component={DinosaurListScreen} 
+        options={{ title: 'Choisir un Dinosaure' }} 
+      />
+      <Stack.Screen 
         name="ARScreen" 
         component={ARScreen} 
-        options={{ 
-          title: 'Scanner',
+        options={({ route }: any) => ({ 
+          title: route.params?.dinoName || 'Scanner',
           headerTransparent: true,
           headerTintColor: '#fff',
-        }} 
+        })} 
       />
     </Stack.Navigator>
   );

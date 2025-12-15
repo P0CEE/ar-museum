@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { theme } from '../theme';
 
 export default function InstructionScreen({ navigation }: any) {
   return (
@@ -8,15 +9,16 @@ export default function InstructionScreen({ navigation }: any) {
       
       <View style={styles.instructionContainer}>
         <Text style={styles.instructionText}>1. Accordez la permission d'accès à la caméra.</Text>
-        <Text style={styles.instructionText}>2. Pointez votre caméra vers un marqueur ou un espace ouvert.</Text>
-        <Text style={styles.instructionText}>3. Découvrez les dinosaures en 3D !</Text>
+        <Text style={styles.instructionText}>2. Choisissez un dinosaure dans la liste.</Text>
+        <Text style={styles.instructionText}>3. Pointez votre caméra vers un marqueur ou un espace ouvert.</Text>
+        <Text style={styles.instructionText}>4. Découvrez les dinosaures en 3D !</Text>
       </View>
 
       <TouchableOpacity 
         style={styles.button}
-        onPress={() => navigation.navigate('ARScreen')}
+        onPress={() => navigation.navigate('DinosaurList')}
       >
-        <Text style={styles.buttonText}>Scanner</Text>
+        <Text style={styles.buttonText}>Voir les Dinosaures</Text>
       </TouchableOpacity>
     </View>
   );
@@ -25,38 +27,42 @@ export default function InstructionScreen({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.background,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 20,
+    padding: theme.spacing.m,
   },
   title: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    ...theme.text.title,
     marginBottom: 30,
-    color: '#2c3e50',
   },
   instructionContainer: {
     marginBottom: 40,
     alignItems: 'flex-start',
     width: '100%',
     paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    padding: theme.spacing.l,
+    borderRadius: 15,
+    borderWidth: 1,
+    borderColor: theme.colors.secondary,
   },
   instructionText: {
-    fontSize: 18,
-    color: '#34495e',
+    ...theme.text.body,
     marginBottom: 15,
     lineHeight: 24,
   },
   button: {
-    backgroundColor: '#27ae60',
+    backgroundColor: theme.colors.secondary,
     paddingHorizontal: 40,
     paddingVertical: 15,
     borderRadius: 30,
     elevation: 5,
+    borderWidth: 2,
+    borderColor: theme.colors.accent,
   },
   buttonText: {
-    color: '#fff',
+    color: theme.colors.white,
     fontSize: 18,
     fontWeight: 'bold',
   },

@@ -40,3 +40,21 @@ Si vous rencontrez une erreur liée à `xcrun` ou au simulateur iOS, essayez de 
 sudo xcode-select --reset
 ```
 Puis réessayez.
+
+## Ajout de Modèles 3D
+
+Pour afficher vos propres modèles de dinosaures, veuillez les placer dans le dossier suivant :
+
+`src/assets/models/`
+
+Actuellement, l'application utilise des placeholders. Pour une intégration complète, vous devrez remplacer les références dans `ARScreen.tsx` pour charger vos fichiers `.glb` ou `.gltf` correspondants aux IDs définis dans `DinosaurListScreen.tsx`.
+
+## Architecture Clean
+
+Le projet suit une architecture "Clean" simplifiée pour séparer les responsabilités :
+
+- **src/presentation/** : Contient tout ce qui est lié à l'interface utilisateur (Écrans, Navigation, Thème). C'est la seule partie qui "sait" que c'est une app React Native.
+- **src/domain/** : (Non utilisé pour le moment, mais prêt) Contiendra les "Règles métier" et les modèles purs.
+    - *Exemple* : L'entité `Dinosaur` (id, nom, période) et les interfaces des UseCases.
+- **src/data/** : (Non utilisé pour le moment, mais prêt) Contiendra la logique de récupération de données.
+    - *Exemple* : `DinosaurRepository` qui irait chercher les infos depuis une API ou une base de données locale.

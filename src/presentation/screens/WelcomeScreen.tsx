@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { theme } from '../theme';
 
 export default function WelcomeScreen({ navigation }: any) {
   return (
@@ -20,30 +21,29 @@ export default function WelcomeScreen({ navigation }: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: theme.colors.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#2c3e50',
+    ...theme.text.title,
+    marginBottom: theme.spacing.s,
   },
   subtitle: {
-    fontSize: 20,
-    color: '#7f8c8d',
+    ...theme.text.subtitle,
     marginBottom: 50,
   },
   button: {
-    backgroundColor: '#3498db',
+    backgroundColor: theme.colors.primary,
     paddingHorizontal: 40,
     paddingVertical: 15,
     borderRadius: 30,
     elevation: 5,
+    borderWidth: 2,
+    borderColor: theme.colors.secondary,
   },
   buttonText: {
-    color: '#fff',
+    color: theme.colors.white,
     fontSize: 18,
     fontWeight: 'bold',
   },
